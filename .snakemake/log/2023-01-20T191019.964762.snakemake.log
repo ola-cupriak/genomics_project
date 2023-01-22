@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count    min threads    max threads
+---------------  -------  -------------  -------------
+all                    1              1              1
+build_consensus        1              1              1
+build_supertree        1              1              1
+build_trees            1              1              1
+select_clusters        1              1              1
+trees2onefile          1              1              1
+total                  6              1              1
+
+Select jobs to execute...
+
+[Fri Jan 20 19:10:20 2023]
+rule select_clusters:
+    input: results/mmseq_res/mmseq_result_all05_all_seqs.fasta
+    output: results/selected_clusters/all05_orto1to1random
+    jobid: 4
+    reason: Missing output files: results/selected_clusters/all05_orto1to1random
+    wildcards: subset=all05, type=orto1to1random
+    resources: tmpdir=/tmp
+
+[Fri Jan 20 19:10:20 2023]
+Finished job 4.
+1 of 6 steps (17%) done
+Select jobs to execute...
+
+[Fri Jan 20 19:10:20 2023]
+rule build_trees:
+    input: results/selected_clusters/all05_orto1to1random
+    output: results/msa_results/all05_orto1to1random, results/nj_trees/all05_orto1to1random
+    jobid: 3
+    reason: Missing output files: results/nj_trees/all05_orto1to1random; Input files updated by another job: results/selected_clusters/all05_orto1to1random
+    wildcards: subset=all05, type=orto1to1random
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Fri Jan 20 19:10:37 2023]
+Error in rule build_trees:
+    jobid: 3
+    input: results/selected_clusters/all05_orto1to1random
+    output: results/msa_results/all05_orto1to1random, results/nj_trees/all05_orto1to1random
+
+RuleException:
+CalledProcessError in file /home/ola/GENOMIKA/genomics_project/Snakefile, line 93:
+Command 'set -euo pipefail;  /home/ola/miniconda3/envs/tsg/bin/python3.10 /home/ola/GENOMIKA/genomics_project/.snakemake/scripts/tmpndaguwaw.build_trees.py' died with <Signals.SIGINT: 2>.
+  File "/home/ola/GENOMIKA/genomics_project/Snakefile", line 93, in __rule_build_trees
+  File "/home/ola/miniconda3/envs/tsg/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Complete log: .snakemake/log/2023-01-20T191019.964762.snakemake.log

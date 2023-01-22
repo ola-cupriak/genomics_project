@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+build_consensus           1              1              1
+build_supertree           1              1              1
+build_trees               1              1              1
+download_proteomes        1              1              1
+run_mmseq2                1              1              1
+save_to_onefile           1              1              1
+select_clusters           1              1              1
+total                     8              1              1
+
+Select jobs to execute...
+
+[Thu Jan 19 16:10:35 2023]
+rule download_proteomes:
+    input: species/species.txt
+    output: results/proteomes_raw/UP000001986.fasta, results/proteomes_raw/UP000002410.fasta, results/proteomes_raw/UP000001412.fasta, results/proteomes_raw/UP000002411.fasta, results/proteomes_raw/UP000000814.fasta, results/proteomes_raw/UP000031866.fasta, results/proteomes_raw/UP000001823.fasta, results/proteomes_raw/UP000001824.fasta, results/proteomes_raw/UP000000818.fasta, results/proteomes_raw/UP000000370.fasta, results/proteomes_raw/UP000001978.fasta, results/proteomes_raw/UP000000269.fasta, results/proteomes_raw/UP000001572.fasta, results/proteomes_raw/UP000019109.fasta, results/proteomes_raw/UP000000256.fasta, results/proteomes_raw/UP000002156.fasta, results/proteomes_raw/UP000000555.fasta, results/proteomes_raw/UP000000417.fasta, results/proteomes_raw/UP000001946.fasta, results/proteomes_raw/UP000001968.fasta, results/proteomes_raw/UP000182811.fasta, results/proteomes_raw/UP000002706.fasta, results/proteomes_raw/UP000001556.fasta, results/proteomes_raw/UP000000423.fasta, results/proteomes_raw/UP000001016.fasta, results/proteomes_raw/UP000000581.fasta, results/proteomes_raw/UP000008816.fasta, results/proteomes_raw/UP000001570.fasta, results/proteomes_raw/UP000001584.fasta, results/proteomes_raw/UP000001973.fasta
+    jobid: 6
+    reason: Missing output files: results/proteomes_raw/UP000000555.fasta, results/proteomes_raw/UP000001824.fasta, results/proteomes_raw/UP000001823.fasta, results/proteomes_raw/UP000001572.fasta, results/proteomes_raw/UP000000423.fasta, results/proteomes_raw/UP000001986.fasta, results/proteomes_raw/UP000002706.fasta, results/proteomes_raw/UP000000814.fasta, results/proteomes_raw/UP000002410.fasta, results/proteomes_raw/UP000019109.fasta, results/proteomes_raw/UP000001570.fasta, results/proteomes_raw/UP000001556.fasta, results/proteomes_raw/UP000000417.fasta, results/proteomes_raw/UP000001946.fasta, results/proteomes_raw/UP000002411.fasta, results/proteomes_raw/UP000001584.fasta, results/proteomes_raw/UP000001016.fasta, results/proteomes_raw/UP000182811.fasta, results/proteomes_raw/UP000001412.fasta, results/proteomes_raw/UP000000269.fasta, results/proteomes_raw/UP000001973.fasta, results/proteomes_raw/UP000000370.fasta, results/proteomes_raw/UP000000818.fasta, results/proteomes_raw/UP000008816.fasta, results/proteomes_raw/UP000000256.fasta, results/proteomes_raw/UP000001978.fasta, results/proteomes_raw/UP000031866.fasta, results/proteomes_raw/UP000000581.fasta, results/proteomes_raw/UP000001968.fasta, results/proteomes_raw/UP000002156.fasta
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Thu Jan 19 16:10:43 2023]
+Error in rule download_proteomes:
+    jobid: 6
+    input: species/species.txt
+    output: results/proteomes_raw/UP000001986.fasta, results/proteomes_raw/UP000002410.fasta, results/proteomes_raw/UP000001412.fasta, results/proteomes_raw/UP000002411.fasta, results/proteomes_raw/UP000000814.fasta, results/proteomes_raw/UP000031866.fasta, results/proteomes_raw/UP000001823.fasta, results/proteomes_raw/UP000001824.fasta, results/proteomes_raw/UP000000818.fasta, results/proteomes_raw/UP000000370.fasta, results/proteomes_raw/UP000001978.fasta, results/proteomes_raw/UP000000269.fasta, results/proteomes_raw/UP000001572.fasta, results/proteomes_raw/UP000019109.fasta, results/proteomes_raw/UP000000256.fasta, results/proteomes_raw/UP000002156.fasta, results/proteomes_raw/UP000000555.fasta, results/proteomes_raw/UP000000417.fasta, results/proteomes_raw/UP000001946.fasta, results/proteomes_raw/UP000001968.fasta, results/proteomes_raw/UP000182811.fasta, results/proteomes_raw/UP000002706.fasta, results/proteomes_raw/UP000001556.fasta, results/proteomes_raw/UP000000423.fasta, results/proteomes_raw/UP000001016.fasta, results/proteomes_raw/UP000000581.fasta, results/proteomes_raw/UP000008816.fasta, results/proteomes_raw/UP000001570.fasta, results/proteomes_raw/UP000001584.fasta, results/proteomes_raw/UP000001973.fasta
+
+RuleException:
+CalledProcessError in file /home/ola/GENOMIKA/genomics_project/Snakefile, line 29:
+Command 'set -euo pipefail;  /home/ola/miniconda3/envs/tsg/bin/python3.10 /home/ola/GENOMIKA/genomics_project/.snakemake/scripts/tmppxac160u.download_proteomes.py' died with <Signals.SIGINT: 2>.
+  File "/home/ola/GENOMIKA/genomics_project/Snakefile", line 29, in __rule_download_proteomes
+  File "/home/ola/miniconda3/envs/tsg/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Complete log: .snakemake/log/2023-01-19T161035.761935.snakemake.log

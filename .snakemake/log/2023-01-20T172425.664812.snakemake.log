@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count    min threads    max threads
+---------------  -------  -------------  -------------
+all                    1              1              1
+bootstrap              1              1              1
+build_supertree        1              1              1
+build_trees            1              1              1
+trees2onefile          1              1              1
+total                  5              1              1
+
+Select jobs to execute...
+
+[Fri Jan 20 17:24:25 2023]
+rule build_trees:
+    input: results/selected_clusters/all05_orto15
+    output: results/msa_results/all05_orto15, results/nj_trees/all05_orto15
+    jobid: 4
+    reason: Missing output files: results/msa_results/all05_orto15, results/nj_trees/all05_orto15
+    wildcards: subset=all05, type=orto15
+    resources: tmpdir=/tmp
+
+[Fri Jan 20 17:25:11 2023]
+Finished job 4.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Fri Jan 20 17:25:11 2023]
+rule bootstrap:
+    input: results/msa_results/all05_orto15, results/nj_trees/all05_orto15
+    output: results/nj_trees_bootstrap/all05_orto15
+    jobid: 3
+    reason: Missing output files: results/nj_trees_bootstrap/all05_orto15; Input files updated by another job: results/nj_trees/all05_orto15, results/msa_results/all05_orto15
+    wildcards: subset=all05, type=orto15
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Fri Jan 20 17:25:34 2023]
+Error in rule bootstrap:
+    jobid: 3
+    input: results/msa_results/all05_orto15, results/nj_trees/all05_orto15
+    output: results/nj_trees_bootstrap/all05_orto15
+
+RuleException:
+CalledProcessError in file /home/ola/GENOMIKA/genomics_project/Snakefile, line 103:
+Command 'set -euo pipefail;  Rscript --vanilla /home/ola/GENOMIKA/genomics_project/.snakemake/scripts/tmp3_3lalim.bootstrap.R' returned non-zero exit status 1.
+  File "/home/ola/GENOMIKA/genomics_project/Snakefile", line 103, in __rule_bootstrap
+  File "/home/ola/miniconda3/envs/tsg/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Complete log: .snakemake/log/2023-01-20T172425.664812.snakemake.log

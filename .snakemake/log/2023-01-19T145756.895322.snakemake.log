@@ -1,0 +1,39 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count    min threads    max threads
+---------------  -------  -------------  -------------
+all                    1              1              1
+build_consensus        1              1              1
+build_supertree        1              1              1
+build_trees            1              1              1
+select_clusters        1              1              1
+total                  5              1              1
+
+Select jobs to execute...
+
+[Thu Jan 19 14:57:57 2023]
+rule select_clusters:
+    input: mmseq_res/mmseq_result_all_all_seqs.fasta
+    output: selected_clusters/all_t
+    jobid: 3
+    reason: Missing output files: selected_clusters/all_t
+    wildcards: subset=all, type=t
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 14:57:57 2023]
+Error in rule select_clusters:
+    jobid: 3
+    input: mmseq_res/mmseq_result_all_all_seqs.fasta
+    output: selected_clusters/all_t
+
+RuleException:
+CalledProcessError in file /home/ola/GENOMIKA/test/Snakefile, line 59:
+Command 'set -euo pipefail;  /home/ola/miniconda3/envs/tsg/bin/python3.10 /home/ola/GENOMIKA/test/.snakemake/scripts/tmp3fj6l9_v.select_clusters.py' returned non-zero exit status 1.
+  File "/home/ola/GENOMIKA/test/Snakefile", line 59, in __rule_select_clusters
+  File "/home/ola/miniconda3/envs/tsg/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-01-19T145756.895322.snakemake.log

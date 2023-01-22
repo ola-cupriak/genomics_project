@@ -1,0 +1,38 @@
+Mollicutes
++-Ureaplasma parvum
+\-Mycoplasma mycoides
+-----------------------------------
+Actinomycetes
++-Streptomyces coelicolor
+\-Mycobacterium tuberculosis
+-----------------------------------
+Bacilli
++-Lactobacillus johnsonii
++-Bacillus subtilis
+\-Staphylococcus aureus
+-----------------------------------
+Clostridia
++-Caldanaerobacter subterraneus
++-Thermoanaerobacter pseudethanolicus
++-Alkaliphilus oremlandii
++-Clostridium perfringens SM101
++-Alkaliphilus metalliredigens
++-Clostridium perfringens ATCC 13124
++-Clostridium perfringens 13
++-Carboxydothermus hydrogenoformans
++-Lachnoclostridium phytofermentans
++-Desulforamulus reducens
++-Desulfitobacterium hafniense
++-Caldicellulosiruptor saccharolyticus
++-Clostridium botulinum F
++-Clostridium botulinum A
++-Symbiobacterium thermophilum
++-Clostridium kluyveri
++-Moorella thermoacetica
++-Clostridium beijerinckii
++-Acetivibrio thermocellus
++-Clostridium tetani
++-Clostridioides difficile
++-Clostridium acetobutylicum
+\-Syntrophomonas wolfei
+-----------------------------------

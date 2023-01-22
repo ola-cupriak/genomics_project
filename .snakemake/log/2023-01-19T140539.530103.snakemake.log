@@ -1,0 +1,3 @@
+KeyError in file /home/ola/GENOMIKA/test/Snakefile, line 45:
+'clustering'
+  File "/home/ola/GENOMIKA/test/Snakefile", line 45, in <module>

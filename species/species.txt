@@ -1,0 +1,30 @@
+UP000001986	Clostridium botulinum A
+UP000002410	Clostridium botulinum F
+UP000001412	Clostridium tetani
+UP000002411	Clostridium kluyveri
+UP000000814	Clostridium acetobutylicum
+UP000031866	Clostridium beijerinckii
+UP000001823	Clostridium perfringens ATCC 13124
+UP000001824	Clostridium perfringens SM101
+UP000000818	Clostridium perfringens 13
+UP000000370	Lachnoclostridium phytofermentans
+UP000001978	Clostridioides difficile
+UP000000269	Alkaliphilus oremlandii
+UP000001572	Alkaliphilus metalliredigens
+UP000019109	Acetivibrio thermocellus
+UP000000256	Caldicellulosiruptor saccharolyticus
+UP000002156	Thermoanaerobacter pseudethanolicus
+UP000000555	Caldanaerobacter subterraneus
+UP000000417	Symbiobacterium thermophilum
+UP000001946	Desulfitobacterium hafniense
+UP000001968	Syntrophomonas wolfei
+UP000182811	Moorella thermoacetica
+UP000002706	Carboxydothermus hydrogenoformans
+UP000001556	Desulforamulus reducens
+UP000000423	Ureaplasma parvum
+UP000001016	Mycoplasma mycoides
+UP000000581	Lactobacillus johnsonii
+UP000008816	Staphylococcus aureus
+UP000001570	Bacillus subtilis
+UP000001584	Mycobacterium tuberculosis
+UP000001973	Streptomyces coelicolor

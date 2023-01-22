@@ -1,0 +1,114 @@
+The flag 'directory' used in rule build_trees is only valid for outputs, not inputs.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+build_consensus           1              1              1
+build_supertree           1              1              1
+build_trees               1              1              1
+download_proteomes        1              1              1
+run_mmseq2                1              1              1
+save_to_onefile           1              1              1
+select_clusters           1              1              1
+total                     7              1              1
+
+Select jobs to execute...
+
+[Thu Jan 19 13:21:41 2023]
+rule download_proteomes:
+    input: species/species.txt
+    output: proteomes_raw/UP000001986.fasta, proteomes_raw/UP000002410.fasta, proteomes_raw/UP000001412.fasta, proteomes_raw/UP000002411.fasta, proteomes_raw/UP000000814.fasta, proteomes_raw/UP000031866.fasta, proteomes_raw/UP000001823.fasta, proteomes_raw/UP000001824.fasta, proteomes_raw/UP000000818.fasta, proteomes_raw/UP000000370.fasta, proteomes_raw/UP000001978.fasta, proteomes_raw/UP000000269.fasta, proteomes_raw/UP000001572.fasta, proteomes_raw/UP000019109.fasta, proteomes_raw/UP000000256.fasta, proteomes_raw/UP000002156.fasta, proteomes_raw/UP000000555.fasta, proteomes_raw/UP000000417.fasta, proteomes_raw/UP000001946.fasta, proteomes_raw/UP000001968.fasta, proteomes_raw/UP000182811.fasta, proteomes_raw/UP000002706.fasta, proteomes_raw/UP000001556.fasta, proteomes_raw/UP000000423.fasta, proteomes_raw/UP000001016.fasta, proteomes_raw/UP000000581.fasta, proteomes_raw/UP000008816.fasta, proteomes_raw/UP000001570.fasta, proteomes_raw/UP000001584.fasta, proteomes_raw/UP000001973.fasta
+    jobid: 5
+    reason: Missing output files: proteomes_raw/UP000031866.fasta, proteomes_raw/UP000002706.fasta, proteomes_raw/UP000000818.fasta, proteomes_raw/UP000001978.fasta, proteomes_raw/UP000001824.fasta, proteomes_raw/UP000001556.fasta, proteomes_raw/UP000000370.fasta, proteomes_raw/UP000000417.fasta, proteomes_raw/UP000001973.fasta, proteomes_raw/UP000019109.fasta, proteomes_raw/UP000008816.fasta, proteomes_raw/UP000002411.fasta, proteomes_raw/UP000001572.fasta, proteomes_raw/UP000001570.fasta, proteomes_raw/UP000001584.fasta, proteomes_raw/UP000001412.fasta, proteomes_raw/UP000000256.fasta, proteomes_raw/UP000001986.fasta, proteomes_raw/UP000002156.fasta, proteomes_raw/UP000000423.fasta, proteomes_raw/UP000002410.fasta, proteomes_raw/UP000000555.fasta, proteomes_raw/UP000001016.fasta, proteomes_raw/UP000000269.fasta, proteomes_raw/UP000001946.fasta, proteomes_raw/UP000001823.fasta, proteomes_raw/UP000182811.fasta, proteomes_raw/UP000001968.fasta, proteomes_raw/UP000000581.fasta, proteomes_raw/UP000000814.fasta
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:22:29 2023]
+Finished job 5.
+1 of 7 steps (14%) done
+Select jobs to execute...
+
+[Thu Jan 19 13:22:29 2023]
+rule save_to_onefile:
+    input: species/species.txt, proteomes_raw/UP000001986.fasta, proteomes_raw/UP000002410.fasta, proteomes_raw/UP000001412.fasta, proteomes_raw/UP000002411.fasta, proteomes_raw/UP000000814.fasta, proteomes_raw/UP000031866.fasta, proteomes_raw/UP000001823.fasta, proteomes_raw/UP000001824.fasta, proteomes_raw/UP000000818.fasta, proteomes_raw/UP000000370.fasta, proteomes_raw/UP000001978.fasta, proteomes_raw/UP000000269.fasta, proteomes_raw/UP000001572.fasta, proteomes_raw/UP000019109.fasta, proteomes_raw/UP000000256.fasta, proteomes_raw/UP000002156.fasta, proteomes_raw/UP000000555.fasta, proteomes_raw/UP000000417.fasta, proteomes_raw/UP000001946.fasta, proteomes_raw/UP000001968.fasta, proteomes_raw/UP000182811.fasta, proteomes_raw/UP000002706.fasta, proteomes_raw/UP000001556.fasta, proteomes_raw/UP000000423.fasta, proteomes_raw/UP000001016.fasta, proteomes_raw/UP000000581.fasta, proteomes_raw/UP000008816.fasta, proteomes_raw/UP000001570.fasta, proteomes_raw/UP000001584.fasta, proteomes_raw/UP000001973.fasta
+    output: proteomes/proteomes_all.fasta
+    jobid: 4
+    reason: Missing output files: proteomes/proteomes_all.fasta; Input files updated by another job: proteomes_raw/UP000002156.fasta, proteomes_raw/UP000031866.fasta, proteomes_raw/UP000002706.fasta, proteomes_raw/UP000000818.fasta, proteomes_raw/UP000001978.fasta, proteomes_raw/UP000001824.fasta, proteomes_raw/UP000000423.fasta, proteomes_raw/UP000001556.fasta, proteomes_raw/UP000002410.fasta, proteomes_raw/UP000000555.fasta, proteomes_raw/UP000000417.fasta, proteomes_raw/UP000000370.fasta, proteomes_raw/UP000001973.fasta, proteomes_raw/UP000019109.fasta, proteomes_raw/UP000008816.fasta, proteomes_raw/UP000001016.fasta, proteomes_raw/UP000002411.fasta, proteomes_raw/UP000001572.fasta, proteomes_raw/UP000001570.fasta, proteomes_raw/UP000001584.fasta, proteomes_raw/UP000001412.fasta, proteomes_raw/UP000001823.fasta, proteomes_raw/UP000182811.fasta, proteomes_raw/UP000000269.fasta, proteomes_raw/UP000000256.fasta, proteomes_raw/UP000001946.fasta, proteomes_raw/UP000001968.fasta, proteomes_raw/UP000001986.fasta, proteomes_raw/UP000000581.fasta, proteomes_raw/UP000000814.fasta; Set of input files has changed since last execution
+    wildcards: subset=all
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:22:29 2023]
+Finished job 4.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Thu Jan 19 13:22:29 2023]
+rule run_mmseq2:
+    input: proteomes/proteomes_all.fasta
+    output: mmseq_res/mmseq_result_all_all_seqs.fasta
+    jobid: 3
+    reason: Missing output files: mmseq_res/mmseq_result_all_all_seqs.fasta; Input files updated by another job: proteomes/proteomes_all.fasta
+    wildcards: subset=all
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:24:41 2023]
+Finished job 3.
+3 of 7 steps (43%) done
+Select jobs to execute...
+
+[Thu Jan 19 13:24:41 2023]
+rule select_clusters:
+    input: mmseq_res/mmseq_result_all_all_seqs.fasta
+    output: selected_clusters/all_orto1to1
+    jobid: 2
+    reason: Missing output files: selected_clusters/all_orto1to1; Input files updated by another job: mmseq_res/mmseq_result_all_all_seqs.fasta
+    wildcards: subset=all, type=orto1to1
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:24:44 2023]
+Finished job 2.
+4 of 7 steps (57%) done
+Select jobs to execute...
+
+[Thu Jan 19 13:24:44 2023]
+rule build_trees:
+    input: selected_clusters/all_orto1to1
+    output: results/all_orto1to1_trees1file.nwk
+    jobid: 1
+    reason: Missing output files: results/all_orto1to1_trees1file.nwk; Input files updated by another job: selected_clusters/all_orto1to1
+    wildcards: subset=all, type=orto1to1
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:25:04 2023]
+Finished job 1.
+5 of 7 steps (71%) done
+Select jobs to execute...
+
+[Thu Jan 19 13:25:05 2023]
+rule build_supertree:
+    input: results/all_orto1to1_trees1file.nwk
+    output: results/all_orto1to1_supertree.nwk
+    jobid: 0
+    reason: Input files updated by another job: results/all_orto1to1_trees1file.nwk
+    wildcards: subset=all, type=orto1to1
+    resources: tmpdir=/tmp
+
+
+[Thu Jan 19 13:25:05 2023]
+rule build_consensus:
+    input: results/all_orto1to1_trees1file.nwk
+    output: results/all_orto1to1_consensus.nwk
+    jobid: 6
+    reason: Input files updated by another job: results/all_orto1to1_trees1file.nwk
+    wildcards: subset=all, type=orto1to1
+    resources: tmpdir=/tmp
+
+[Thu Jan 19 13:25:05 2023]
+Finished job 6.
+6 of 7 steps (86%) done
+[Thu Jan 19 13:25:06 2023]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: .snakemake/log/2023-01-19T132141.418273.snakemake.log

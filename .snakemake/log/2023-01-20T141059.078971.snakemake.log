@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count    min threads    max threads
+---------------  -------  -------------  -------------
+all                    1              1              1
+bootstrap              1              1              1
+build_consensus        1              1              1
+build_supertree        1              1              1
+trees2onefile          1              1              1
+total                  5              1              1
+
+Select jobs to execute...
+
+[Fri Jan 20 14:10:59 2023]
+rule bootstrap:
+    input: results/msa_results/all05_orto1to1, results/nj_trees/all05_orto1to1
+    output: results/nj_trees_bootstrap/all05_orto1to1
+    jobid: 3
+    reason: Missing output files: results/nj_trees_bootstrap/all05_orto1to1
+    wildcards: subset=all05, type=orto1to1
+    resources: tmpdir=/tmp
+
+[Fri Jan 20 14:13:45 2023]
+Error in rule bootstrap:
+    jobid: 3
+    input: results/msa_results/all05_orto1to1, results/nj_trees/all05_orto1to1
+    output: results/nj_trees_bootstrap/all05_orto1to1
+
+RuleException:
+CalledProcessError in file /home/ola/GENOMIKA/genomics_project/Snakefile, line 91:
+Command 'set -euo pipefail;  Rscript --vanilla /home/ola/GENOMIKA/genomics_project/.snakemake/scripts/tmpqksgp0bw.bootstrap.R' returned non-zero exit status 1.
+  File "/home/ola/GENOMIKA/genomics_project/Snakefile", line 91, in __rule_bootstrap
+  File "/home/ola/miniconda3/envs/tsg/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Removing output files of failed job bootstrap since they might be corrupted:
+results/nj_trees_bootstrap/all05_orto1to1
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-01-20T141059.078971.snakemake.log

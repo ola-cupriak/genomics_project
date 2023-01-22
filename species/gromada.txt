@@ -1,0 +1,36 @@
+Tenericutes
++-Ureaplasma parvum
+\-Mycoplasma mycoides
+-----------------------------------
+Actinomycetota
++-Streptomyces coelicolor
+\-Mycobacterium tuberculosis
+-----------------------------------
+Bacillota
++-Caldanaerobacter subterraneus
++-Thermoanaerobacter pseudethanolicus
++-Alkaliphilus oremlandii
++-Clostridium perfringens SM101
++-Alkaliphilus metalliredigens
++-Clostridium perfringens ATCC 13124
++-Clostridium perfringens 13
++-Carboxydothermus hydrogenoformans
++-Lachnoclostridium phytofermentans
++-Desulforamulus reducens
++-Desulfitobacterium hafniense
++-Caldicellulosiruptor saccharolyticus
++-Clostridium botulinum F
++-Clostridium botulinum A
++-Lactobacillus johnsonii
++-Symbiobacterium thermophilum
++-Clostridium kluyveri
++-Moorella thermoacetica
++-Clostridium beijerinckii
++-Acetivibrio thermocellus
++-Clostridium tetani
++-Clostridioides difficile
++-Clostridium acetobutylicum
++-Bacillus subtilis
++-Staphylococcus aureus
+\-Syntrophomonas wolfei
+-----------------------------------
