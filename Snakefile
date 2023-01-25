@@ -5,19 +5,15 @@ with open(config['species_file'], 'r') as file:
     lines = file.readlines()
     PROTEOMES = [line.split('\t')[0] for line in lines]
 
-if config['bootstrap']:
-    BOOTSTRAP = ['_bootstrap']
-else:
-    BOOTSTRAP = ['']
 
 def get_input(wildcards):
     input_list = []
     if config['results']['supertree']:
         if config['bootstrap']:
             if config['selecting_clusters']['choose_random']:
-                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_b'+"_supertree.nwk")
+                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_b'+str(config['bootstrap_thresh'])+"_supertree.nwk")
             else:
-                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'_b'+"_supertree.nwk")
+                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'_b'+str(config['bootstrap_thresh'])+"_supertree.nwk")
         else:
             if config['selecting_clusters']['choose_random']:
                 input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_nb'+"_supertree.nwk")
@@ -26,9 +22,9 @@ def get_input(wildcards):
     if config['results']['consensus']:
         if config['bootstrap']:
             if config['selecting_clusters']['choose_random']:
-                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_b'+"_consensus.nwk")
+                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_b'+str(config['bootstrap_thresh'])+"_consensus.nwk")
             else:
-                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'_b'+"_consensus.nwk")
+                input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'_b'+str(config['bootstrap_thresh'])+"_consensus.nwk")
         else:
             if config['selecting_clusters']['choose_random']:
                 input_list.append("results/final/"+config['names']['subset']+"_"+config['names']['type']+'random'+'_nb'+"_consensus.nwk")

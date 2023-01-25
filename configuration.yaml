@@ -2,12 +2,12 @@
 species_file : "species/species.txt"
 
 names:
-  subset: all05
-  type: para5.100.035
+  subset: all
+  type: orto1to1
 
 results:
   supertree: True
-  consensus: False
+  consensus: True
 
 save_proteomes:
   to_remove: []
@@ -16,14 +16,15 @@ clustering:
   c: 0.5
 
 selecting_clusters:
-  min_cluster_size: 5
-  max_cluster_size: 100
-  max_repeat: 0.35
-  orthological: False
+  min_cluster_size: 30
+  max_cluster_size: 30
+  max_repeat: 0.5
+  orthological: True
   choose_random: False
   excluded_species: []
 
-bootstrap: False
+bootstrap: True
+bootstrap_thresh: 50
 
 get_consensus:
   p: 0.5
