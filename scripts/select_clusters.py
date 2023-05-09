@@ -3,7 +3,10 @@ import random
 import sys
 
 
-def clusters2dict(mmseq_file: str):
+def clusters2dict(mmseq_file: str) -> dict:
+    """
+    Saves clusters from mmseqs2 to dictionary.
+    """
     with open(mmseq_file  , 'r') as f:
         contet = f.read()
     clusters = {}
@@ -18,22 +21,34 @@ def clusters2dict(mmseq_file: str):
     return clusters
 
 
-def get_species_name(description):
+def get_species_name(description: str) -> str:
+    """
+    Returns species name from description.
+    """
     return description.split('OS=')[1].split('OX=')[0].strip()
 
 
-def split_desc_seq(protein):
+def split_desc_seq(protein: str) -> str:
+    """
+    Returns description and sequence from protein.
+    """
     return protein.split('\n')[0], protein.split('\n')[1]
 
 
-def ref_spec_names(species_file: str):
+def ref_spec_names(species_file: str) -> set:
+    """
+    Returns set of species names from species_file.
+    """
     with open(species_file, 'r') as f:
         species_names = f.readlines()
         species_names = [name.split('\t')[1].strip() for name in species_names]
     return set(species_names)
 
 
-def check_names(ref_name, name):
+def check_names(ref_name: str, name: str) -> bool:
+    """
+    Checks if name is the same as ref_name.
+    """
     ref_name = ref_name.split(' ')
     name = name.split(' ')
     name = [el.replace('(', '') for el in name]
@@ -47,7 +62,10 @@ def check_names(ref_name, name):
     return True
 
 
-def change_names(clusters, species_names):
+def change_names(clusters: dict, species_names: set) -> None:
+    """
+    Changes species names in clusters to names from species_names.
+    """
     change_spec_name = dict()
     for clust in clusters.values():
         to_remove = []
@@ -68,9 +86,20 @@ def change_names(clusters, species_names):
     
 def select_clusters(clusters: dict, min_cluster_size: int = 30, max_cluster_size: int = 100000, 
             max_repeat: float = 1/30, orthological: bool = False, choose_random: bool = False,
-            excluded_species=set()):
-    '''
-    '''
+            excluded_species=set()) -> dict:
+    """
+    Selects clusters from clusters dictionary.
+    Args:
+        clusters (dict): dictionary with clusters
+        min_cluster_size (int): minimal size of cluster
+        max_cluster_size (int): maximal size of cluster
+        max_repeat (float): maximal repeat of one species in cluster
+        orthological (bool): if True, only orthological clusters are selected
+        choose_random (bool): if True, random seq from species is selected
+        excluded_species (set): set of species to exclude
+    Returns:
+        selected_clusters (dict): dictionary with selected clusters
+    """
     selected_clusters = {}
     for name, clust in clusters.items():
         if len(clust) < min_cluster_size: continue
@@ -114,8 +143,11 @@ def select_clusters(clusters: dict, min_cluster_size: int = 30, max_cluster_size
     return selected_clusters
 
 
-def check_unique_names(cluster):
-    '''If name is not unique, add number to the end of name'''
+def check_unique_names(cluster: list) -> list:
+    '''
+    Checks name uniqueness.
+    If the name is not unique, adds number to the end of name.
+    '''
     names = {}
     for i, protein in enumerate(cluster):
         species, seq = protein
@@ -129,7 +161,10 @@ def check_unique_names(cluster):
     return cluster
 
 
-def cluster2fasta(cluster, file):
+def cluster2fasta(cluster: list, file: str) -> None:
+    """
+    Saves cluster to fasta file.
+    """
     with open(file, 'w') as f:
         for protein in cluster:
             species, seq = protein
@@ -137,7 +172,10 @@ def cluster2fasta(cluster, file):
             f.write(f'>{species}\n{seq}\n')
 
 
-def create_dirs(path: str):
+def create_dirs(path: str) -> None:
+    """
+    Creates directories for output files.
+    """
     elements = path.split('/')
     for i in range(len(elements)):
         tocheck = '/'.join(elements[0:i+1])
@@ -152,7 +190,20 @@ def create_dirs(path: str):
 
 def run(mmseq_file: str, species_file: str, output_dir: str,  
         min_cluster_size: int, max_cluster_size: int, max_repeat: float, 
-        orthological: bool, choose_random: bool, excluded_species: set):
+        orthological: bool, choose_random: bool, excluded_species: set) -> None:
+    """
+    Runs selecting clusters.
+    Args:
+        mmseq_file (str): path to mmseq file
+        species_file (str): path to file with species names
+        output_dir (str): path to directory for output files
+        min_cluster_size (int): minimal size of cluster
+        max_cluster_size (int): maximal size of cluster
+        max_repeat (float): maximal repeat of one species in cluster
+        orthological (bool): if True, only orthological clusters are selected
+        choose_random (bool): if True, random seq from species is selected
+        excluded_species (set): set of species to exclude
+    """
     create_dirs(output_dir)
     clusters = clusters2dict(mmseq_file)
     species_names = ref_spec_names(species_file)

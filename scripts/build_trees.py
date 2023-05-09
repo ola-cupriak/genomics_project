@@ -8,7 +8,10 @@ import sys
 
 
 
-def create_dirs(path: str):
+def create_dirs(path: str) -> None:
+    '''
+    Creates directories based on the specified path
+    '''
     elements = path.split('/')
     for i in range(len(elements)):
         tocheck = '/'.join(elements[0:i+1])
@@ -20,7 +23,11 @@ def create_dirs(path: str):
                 sys.exit(0)
     
 
-def run_parallel(func, input_dict, output_dir):
+def run_parallel(func, input_dict: dict, output_dir: str) -> dict:
+    '''
+    Runs the specified function in parallel for each element of the input dictionary.
+    Returns a dictionary with the results of the function.
+    '''
     create_dirs(output_dir)
     num_cores = multiprocessing.cpu_count()
     results = Parallel(n_jobs=num_cores)(delayed(func)(object, name, output_dir) for name, object in input_dict.items())
@@ -31,10 +38,10 @@ def run_parallel(func, input_dict, output_dir):
     return results_dict
 
 
-def get_multialignment(input_file: str, cluster_name: str, output_dir: str):
-    '''Funkcja przy pomocy programu clustalo tworzy multiuliniowienie 
-    na podstawie sekwencji białkowych przekazanych w pliku wejściowym.'''
-    # Tworzenie pliku wejściowego
+def get_multialignment(input_file: str, cluster_name: str, output_dir: str) -> tuple:
+    '''
+    Creates multialignment based on protein sequences passed in the input file.
+    '''
     clustalw_cline = Applications.ClustalwCommandline('clustalo', infile=input_file,
                                                     outfile=f'{output_dir}/MSA_{cluster_name}.aln')
     clustalw_cline()
@@ -43,10 +50,11 @@ def get_multialignment(input_file: str, cluster_name: str, output_dir: str):
     return (cluster_name, proteins_msa)
 
 
-def tree_construction(MSA, name, output_dir):
-    '''Funkcja na podstawie multiuliniowienia generuje drzewa filogenetyczne 
-    przy pmetody neighbor-joining dla podanej macierzy blosum. 
-    Rysuje je oraz zapisuje w plikach newick.'''
+def tree_construction(MSA, name: str, output_dir: str) -> tuple:
+    '''
+    Based on multilineage, generates phylogenetic trees using the neighbor-joining method for the given blosum matrix. 
+    Creates images and saves in newick files.
+    '''
     cal = DistanceCalculator()
     constr = DistanceTreeConstructor()
     proteins = cal.get_distance(MSA)
@@ -57,7 +65,10 @@ def tree_construction(MSA, name, output_dir):
     return (name, f'{output_dir}/njtree_{name}.nwk')
 
 
-def run(input_dir: str, msa_dir: str, trees_dir: str):
+def run(input_dir: str, msa_dir: str, trees_dir: str) -> None:
+    '''
+    Runs the pipeline for building phylogenetic trees.
+    '''
     paths = os.listdir(input_dir)
     paths = [path for path in paths if path[0] != '.']
     cluster_names = [input_file.split('.')[:-1] for input_file in paths]

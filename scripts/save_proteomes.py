@@ -1,7 +1,11 @@
 import os
 
 
-def proteomes2onefile(input_file: str, proteome_files: list, output_file: str, excluded_species: list=[]):
+def proteomes2onefile(input_file: str, proteome_files: list, 
+                      output_file: str, excluded_species: list=[]):
+    '''
+    Saves all proteomes to one fasta file.
+    '''
     with open(input_file, 'r') as f:
         entries = f.readlines()
         ids = [e.split('\t')[0].strip() for e in entries]

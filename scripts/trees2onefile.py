@@ -3,7 +3,7 @@ import re
 
 
 
-def replace(string):
+def replace(string: str) -> str:
     '''
     Remove floats and : from tree string. Shorten names to 4 letters. Remove _paralog and number
     '''
@@ -18,8 +18,10 @@ def replace(string):
     return string
 
 
-def save_trees2onefile(input_dir: dict, output):
-    '''Funkcja zapisuje wszystkie sekwencje z pliku wejściowego do jednego pliku fasta.'''
+def save_trees2onefile(input_dir: dict, output: str) -> None:
+    '''
+    Writes all sequences from the input file to a single fasta file
+    '''
     paths_list = os.listdir(input_dir)
     paths_list = [input_dir+'/'+path for path in paths_list]
     trees_nwk = []

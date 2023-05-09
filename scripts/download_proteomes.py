@@ -3,12 +3,18 @@ import requests
 
 
 def download_proteome(entery: str, output_path: str):
+    """
+    Downloads one proteome from uniprot database.
+    """
     url = f'https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28%28proteome%3A{entery}%29%29'
     with open(output_path, 'w') as f:
         f.write(requests.get(url).text)
 
 
 def download_all(species_file: str, output_dir: str):
+    """
+    Downloads all proteomes specified in species_file from uniprot database.
+    """
     output_dir = output_dir.split('/')[:-1]
     output_dir = '/'.join(output_dir)
     with open(species_file, 'r') as file:
