@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule build_supertree in file /home/ola/GENOMIKA/genomics_project/Snakefile, line 122:
-Missing input files for rule build_supertree:
-    output: results/final/all05_orto15_b_supertree.nwk
-    wildcards: subset=all05, type=orto15, bootstrap=b
-    affected files:
-        results/all05_orto15_b_trees1file.nwk

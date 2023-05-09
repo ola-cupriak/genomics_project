@@ -1,3 +1,0 @@
-KeyError in file /home/ola/GENOMIKA/test/Snakefile, line 47:
-'wildcards.subset'
-  File "/home/ola/GENOMIKA/test/Snakefile", line 47, in <module>
